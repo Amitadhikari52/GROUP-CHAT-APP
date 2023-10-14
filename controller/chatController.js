@@ -17,7 +17,18 @@ exports.sendMessage = async (req, res, next) => {
     console.log(error);
     return res.status(400).json({
       message: "Error!",
-      error: error.message 
+      error: error.message,
     });
+  }
+};
+
+exports.getMessage = async (req, res, next) => {
+  try {
+    const messages = await Chat.findAll();
+    return res.status(200).json({
+      messages: messages,
+    });
+  } catch (error) {
+    console.log(error);
   }
 };
