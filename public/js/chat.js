@@ -1,4 +1,3 @@
-const { default: axios } = require("axios");
 
 const messageTextArea = document.getElementById("messageTextArea");
 const messageSendBtn = document.getElementById("messageSendBtn");
@@ -107,6 +106,10 @@ async function getMessages() {
     console.log(error);
   }
 }
+
+setInterval(() => {
+  getMessages();
+}, 1000);
 
 messageSendBtn.addEventListener("click", messageSend);
 document.addEventListener("DOMContentLoaded", getMessages);
