@@ -29,6 +29,12 @@ async function activeGroup(e) {
 
 async function messageSend() {
   try {
+    if (chatBoxBody.querySelector(".groupMembersDiv")) {
+      const members = chatBoxBody.querySelectorAll(".groupMembersDiv");
+      members.forEach((member) => {
+        member.remove();
+      });
+    }
     const message = messageTextArea.value;
     const token = localStorage.getItem("token");
     const groupName = localStorage.getItem("groupName");
@@ -74,11 +80,11 @@ async function getMessages() {
     }
     let param;
     const localStorageChats = JSON.parse(localStorage.getItem("chats"));
-    if (localStorageChats && localStorageChats.length !== 0){
+    if (localStorageChats && localStorageChats.length !== 0) {
       let array = JSON.parse(localStorage.getItem("chats"));
       let length = JSON.parse(localStorage.getItem("chats")).length;
       param = array[length - 1].id;
-    }else {
+    } else {
       param = 0;
     }
     const res = await axios.get(
