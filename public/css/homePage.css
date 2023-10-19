@@ -2,7 +2,7 @@ body,
 html {
   height: 100%;
   margin: 0;
-  background: linear-gradient(rgb(255, 255, 255) , rgb(109, 39, 239));
+  background: linear-gradient(crimson , rgb(109, 39, 239));
 
 }
 
@@ -17,6 +17,7 @@ html {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   
 }
+
 .contacts_body {
   padding: 0.75rem 0 !important;
   overflow-y: auto;

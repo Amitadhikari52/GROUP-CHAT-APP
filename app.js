@@ -5,12 +5,12 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs");
 
-const cors = require("cors");
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+// const cors = require("cors");
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -55,7 +55,7 @@ app.use("/group", groupRouter);
 
 
 sequelize
-  .sync()
+  .sync({ alter: true })
   .then((result) => {
     app.listen(process.env.PORT || 4000);
   })
